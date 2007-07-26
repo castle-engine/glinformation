@@ -74,7 +74,7 @@ begin
         nl+
         TGLWindow.ParseParametersHelp(StandardParseOptions, true) +nl+
         nl+
-        SCamelotProgramHelpSuffix(ProgramName, Version, true));
+        SVrmlEngineProgramHelpSuffix(ProgramName, Version, true));
       ProgramBreak;
      end;
   1: glw.StencilBufferBits := StrToInt(Argument);

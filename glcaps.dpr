@@ -22,7 +22,7 @@ program glcaps;
 
 {$apptype CONSOLE}
 
-uses OpenGLh, GLWindow, GLW_Win, SysUtils, KambiUtils, KambiGLUtils, 
+uses OpenGLh, GLWindow, GLW_Win, SysUtils, KambiUtils, KambiGLUtils,
   ParseParametersUnit, KambiFilesUtils;
 
 const
@@ -121,7 +121,7 @@ end.
 
 {
   Local Variables:
-  kam-compile-release-command-win32: "clean_glwindow_unit && fpcreleaseb"
-  kam-compile-release-command-unix: "clean_glwindow_unit && fpcreleaseb"
+  kam-compile-release-command-unix:  "./compile.sh && mv -fv glcaps     glcaps_glut      ~/bin/"
+  kam-compile-release-command-win32: "./compile.sh && mv -fv glcaps.exe glcaps_glut.exe c:/bin/"
   End:
 }

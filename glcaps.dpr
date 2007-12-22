@@ -22,7 +22,7 @@ program glcaps;
 
 {$apptype CONSOLE}
 
-uses OpenGLh, GLWindow, GLW_Win, SysUtils, KambiUtils, KambiGLUtils,
+uses GL, GLU, GLExt, GLWindow, GLW_Win, SysUtils, KambiUtils, KambiGLUtils,
   ParseParametersUnit, KambiFilesUtils;
 
 const

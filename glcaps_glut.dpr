@@ -1,6 +1,6 @@
 program glcaps_glut;
 
-uses OpenGLh, KambiGlut, KambiGLUtils;
+uses GL, GLU, GLExt, KambiGlut, KambiGLUtils;
 
 begin
   glutPascalInit;

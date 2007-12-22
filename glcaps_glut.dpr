@@ -5,6 +5,6 @@ uses GL, GLU, GLExt, KambiGlut, KambiGLUtils;
 begin
   glutPascalInit;
   glutCreateWindow('glcaps');
-  ReadImplementationProperties;
+  LoadAllExtensions;
   Writeln(GLCapsString);
 end.

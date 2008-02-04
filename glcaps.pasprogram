@@ -26,8 +26,8 @@ uses GL, GLU, GLExt, GLWindow, GLW_Win, SysUtils, KambiUtils, KambiGLUtils,
   ParseParametersUnit, KambiFilesUtils;
 
 const
-  Version = '1.1.1';
-  Options: array[0..11] of TOption =
+  Version = '1.1.2';
+  Options: array[0..12] of TOption =
   (
     (Short: 'h'; Long: 'help'; Argument: oaNone),
     (Short: 's'; Long: 'stencil-bits'; Argument: oaRequired),
@@ -40,7 +40,8 @@ const
     (Short:  #0; Long: 'accum-bits'; Argument: oaRequired4Separate),
     (Short:  #0; Long: 'single'; Argument: oaNone),
     (Short:  #0; Long: 'double'; Argument: oaNone),
-    (Short: 'v'; Long: 'version'; Argument: oaNone)
+    (Short: 'v'; Long: 'version'; Argument: oaNone),
+    (Short: 'm'; Long: 'multi-sampling'; Argument: oaRequired)
   );
 
 procedure OptionProc(OptionNum: Integer; HasArgument: boolean;
@@ -67,6 +68,7 @@ begin
         '  --accum-blue-bits ACCUM-BLUE' +nl+
         '  --accum-alpha-bits ACCUM-ALPHA' +nl+
         '  --accum-bits ACCUM-RED ACCUM-GREEN ACCUM-BLUE ACCUM-ALPHA' +nl+
+        '  -m / --multi-sampling SAMPLES (1 means "no multisampling")' +nl+
         'Other options controlling OpenGL context parameters:' +nl+
         '  --single              Single buffered visual (note: we might get' +nl+
         '                        double buffered anyway)' +nl+
@@ -96,6 +98,7 @@ begin
        Writeln(Version);
        ProgramBreak;
       end;
+  12: Glw.MultiSampling := StrToInt(Argument);
   else EInternalError.Create('OptionProc');
  end;
 end;

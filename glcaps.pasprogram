@@ -30,7 +30,7 @@ uses GL, GLU, GLExt, GLWindow, GLW_Win, SysUtils, KambiUtils, KambiGLUtils,
   ParseParametersUnit, KambiFilesUtils;
 
 const
-  Version = '1.1.2';
+  Version = '1.1.3';
   Options: array[0..12] of TOption =
   (
     (Short: 'h'; Long: 'help'; Argument: oaNone),

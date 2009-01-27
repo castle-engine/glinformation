@@ -25,5 +25,5 @@ rm -f opengl/glwindow.o \
       opengl/GLWindow.o \
       opengl/GLWindow.ppu
 
-fpc -dRELEASE @kambi.cfg ../glcaps/glcaps.pasprogram
-fpc -dRELEASE @kambi.cfg ../glcaps/glcaps_glut.pasprogram
+fpc -dRELEASE "${KAMBI_FPC_OPTIONS:-}" @kambi.cfg ../glcaps/glcaps.pasprogram
+fpc -dRELEASE "${KAMBI_FPC_OPTIONS:-}" @kambi.cfg ../glcaps/glcaps_glut.pasprogram

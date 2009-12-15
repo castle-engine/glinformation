@@ -26,8 +26,11 @@ program glcaps;
 
 {$apptype CONSOLE}
 
-uses GL, GLU, GLExt, GLWindow, GLW_Win, SysUtils, KambiUtils, KambiGLUtils,
+uses GL, GLU, GLExt, GLWindow, SysUtils, KambiUtils, KambiGLUtils,
   ParseParametersUnit, KambiFilesUtils;
+
+var
+  Glw: TGLWindow;
 
 const
   Version = '1.1.5';
@@ -108,6 +111,8 @@ begin
 end;
 
 begin
+ Glw := TGLWindow.Create(Application);
+
  { parse params }
  { TODO ale nie moje - musze uzyc ponizszych linijek zeby uniknac bledu
    zero_array_bug podczas kompilacji tego programu w FPC 1.0.6/10 pod Windowsem.

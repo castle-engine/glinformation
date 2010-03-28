@@ -33,7 +33,7 @@ var
   Glw: TGLWindow;
 
 const
-  Version = '1.1.5';
+  Version = '1.1.6';
   Options: array[0..12] of TOption =
   (
     (Short: 'h'; Long: 'help'; Argument: oaNone),

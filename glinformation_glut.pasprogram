@@ -1,10 +1,10 @@
-program glcaps_glut;
+program glinformation_glut;
 
 uses GL, GLU, GLExt, KambiGlut, KambiGLUtils;
 
 begin
   glutPascalInit;
-  glutCreateWindow('glcaps');
+  glutCreateWindow('glinformation');
   LoadAllExtensions;
-  Writeln(GLCapsString);
+  Writeln(GLInformationString);
 end.

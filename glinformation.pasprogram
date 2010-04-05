@@ -1,28 +1,28 @@
 {
   Copyright 2002-2010 Michalis Kamburelis.
 
-  This file is part of "glcaps".
+  This file is part of "glinformation".
 
-  "glcaps" is free software; you can redistribute it and/or modify
+  "glinformation" is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
 
-  "glcaps" is distributed in the hope that it will be useful,
+  "glinformation" is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with "glcaps"; if not, write to the Free Software
+  along with "glinformation"; if not, write to the Free Software
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
   ----------------------------------------------------------------------------
 }
 
 { Print OpenGL information.
-  See [http://vrmlengine.sourceforge.net/glcaps.php]. }
-program glcaps;
+  See [http://vrmlengine.sourceforge.net/glinformation.php]. }
+program glinformation;
 
 {$apptype CONSOLE}
 
@@ -57,7 +57,7 @@ begin
  case OptionNum of
   0: begin
       Writeln(
-        'glcaps: OpenGL capabilities,' +nl+
+        'glinformation: OpenGL information,' +nl+
         '  a small program that creates OpenGL context and uses it to query' +nl+
         '  OpenGL implementation about many things. Results are output to stdout.' +nl+
         nl+
@@ -127,13 +127,13 @@ begin
 
  glw.Init;
  try
-  Writeln(GLCapsString);
+  Writeln(GLInformationString);
  finally glw.Close end;
 end.
 
 {
   Local Variables:
-  kam-compile-release-command-unix:    "./compile.sh && mv -fv glcaps     glcaps_glut      ~/bin/"
-  kam-compile-release-command-windows: "./compile.sh && mv -fv glcaps.exe glcaps_glut.exe c:\\\\bin"
+  kam-compile-release-command-unix:    "./compile.sh && mv -fv glinformation     glinformation_glut      ~/bin/"
+  kam-compile-release-command-windows: "./compile.sh && mv -fv glinformation.exe glinformation_glut.exe c:\\\\bin"
   End:
 }

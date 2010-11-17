@@ -125,7 +125,7 @@ begin
  if Parameters.High <> 0 then
   raise EInvalidParams.CreateFmt('Excessive parameter "%s"', [Parameters[1]]);
 
- glw.Init;
+ glw.Open;
  try
   Writeln(GLInformationString);
  finally glw.Close end;

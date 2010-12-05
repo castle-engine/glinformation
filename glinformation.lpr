@@ -30,7 +30,7 @@ uses GL, GLU, GLExt, GLWindow, SysUtils, KambiUtils, KambiGLUtils,
   ParseParametersUnit, KambiFilesUtils;
 
 var
-  Glw: TGLWindow;
+  Window: TGLWindow;
 
 const
   Version = '1.2.0';
@@ -86,32 +86,32 @@ begin
         SVrmlEngineProgramHelpSuffix(ProgramName, Version, true));
       ProgramBreak;
      end;
-  1: glw.StencilBufferBits := StrToInt(Argument);
-  2: glw.AlphaBits := StrToInt(Argument);
-  3: glw.DepthBufferBits := StrToInt(Argument);
-  4: glw.AccumBufferBits[0] := StrToInt(Argument);
-  5: glw.AccumBufferBits[1] := StrToInt(Argument);
-  6: glw.AccumBufferBits[2] := StrToInt(Argument);
-  7: glw.AccumBufferBits[3] := StrToInt(Argument);
+  1: Window.StencilBufferBits := StrToInt(Argument);
+  2: Window.AlphaBits := StrToInt(Argument);
+  3: Window.DepthBufferBits := StrToInt(Argument);
+  4: Window.AccumBufferBits[0] := StrToInt(Argument);
+  5: Window.AccumBufferBits[1] := StrToInt(Argument);
+  6: Window.AccumBufferBits[2] := StrToInt(Argument);
+  7: Window.AccumBufferBits[3] := StrToInt(Argument);
   8: begin
-      glw.AccumBufferBits[0] := StrToInt(SeparateArgs[1]);
-      glw.AccumBufferBits[1] := StrToInt(SeparateArgs[2]);
-      glw.AccumBufferBits[2] := StrToInt(SeparateArgs[3]);
-      glw.AccumBufferBits[3] := StrToInt(SeparateArgs[4]);
+      Window.AccumBufferBits[0] := StrToInt(SeparateArgs[1]);
+      Window.AccumBufferBits[1] := StrToInt(SeparateArgs[2]);
+      Window.AccumBufferBits[2] := StrToInt(SeparateArgs[3]);
+      Window.AccumBufferBits[3] := StrToInt(SeparateArgs[4]);
      end;
-  9: glw.DoubleBuffer := false;
-  10: glw.DoubleBuffer := true;
+  9: Window.DoubleBuffer := false;
+  10: Window.DoubleBuffer := true;
   11: begin
        Writeln(Version);
        ProgramBreak;
       end;
-  12: Glw.MultiSampling := StrToInt(Argument);
+  12: Window.MultiSampling := StrToInt(Argument);
   else EInternalError.Create('OptionProc');
  end;
 end;
 
 begin
- Glw := TGLWindow.Create(Application);
+ Window := TGLWindow.Create(Application);
 
  { parse params }
  { TODO ale nie moje - musze uzyc ponizszych linijek zeby uniknac bledu
@@ -120,15 +120,15 @@ begin
  if IsPresentInPars(['-h', '--help'], false) then
   OptionProc(0, false, '', EmptySeparateArgs, nil);
 
- glw.ParseParameters(StandardParseOptions);
+ Window.ParseParameters(StandardParseOptions);
  ParseParameters(Options, @OptionProc, nil);
  if Parameters.High <> 0 then
   raise EInvalidParams.CreateFmt('Excessive parameter "%s"', [Parameters[1]]);
 
- glw.Open;
+ Window.Open;
  try
   Writeln(GLInformationString);
- finally glw.Close end;
+ finally Window.Close end;
 end.
 
 {

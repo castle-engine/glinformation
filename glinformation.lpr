@@ -26,7 +26,7 @@ program glinformation;
 
 {$apptype CONSOLE}
 
-uses GL, GLU, GLExt, GLWindow, SysUtils, KambiUtils, KambiGLUtils,
+uses GLWindow, SysUtils, KambiUtils, KambiGLUtils,
   ParseParametersUnit, KambiFilesUtils;
 
 var

@@ -26,8 +26,7 @@ program glinformation;
 
 {$apptype CONSOLE}
 
-uses GLWindow, SysUtils, KambiUtils, KambiGLUtils,
-  ParseParametersUnit, KambiFilesUtils;
+uses GLWindow, SysUtils, KambiUtils, KambiGLUtils, KambiParameters, KambiFilesUtils;
 
 var
   Window: TGLWindow;
@@ -114,14 +113,8 @@ begin
  Window := TGLWindow.Create(Application);
 
  { parse params }
- { TODO ale nie moje - musze uzyc ponizszych linijek zeby uniknac bledu
-   zero_array_bug podczas kompilacji tego programu w FPC 1.0.6/10 pod Windowsem.
-   Gdyby wszystko dzialalo to ponizsze dwie linijki nie powinny byc potrzebne.  }
- if IsPresentInPars(['-h', '--help'], false) then
-  OptionProc(0, false, '', EmptySeparateArgs, nil);
-
  Window.ParseParameters(StandardParseOptions);
- ParseParameters(Options, @OptionProc, nil);
+ Parameters.Parse(Options, @OptionProc, nil);
  if Parameters.High <> 0 then
   raise EInvalidParams.CreateFmt('Excessive parameter "%s"', [Parameters[1]]);
 

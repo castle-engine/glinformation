@@ -62,7 +62,7 @@
   <Debugging>
     <BreakPoints Count="1">
       <Item1>
-        <Source Value="../kambi_vrml_game_engine/vrml/opengl/vrmltexturerenderer.inc"/>
+        <Source Value="../castle_game_engine/vrml/opengl/vrmltexturerenderer.inc"/>
         <Line Value="0"/>
       </Item1>
     </BreakPoints>

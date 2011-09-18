@@ -21,7 +21,7 @@
 }
 
 { Print OpenGL information.
-  See [http://vrmlengine.sourceforge.net/glinformation.php]. }
+  See [http://castle-engine.sourceforge.net/glinformation.php]. }
 program glinformation;
 
 {$apptype CONSOLE}
@@ -82,7 +82,7 @@ begin
         nl+
         TGLWindow.ParseParametersHelp(StandardParseOptions, true) +nl+
         nl+
-        SVrmlEngineProgramHelpSuffix(ProgramName, Version, true));
+        SCastleEngineProgramHelpSuffix(ProgramName, Version, true));
       ProgramBreak;
      end;
   1: Window.StencilBufferBits := StrToInt(Argument);

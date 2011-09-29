@@ -26,7 +26,7 @@ program glinformation;
 
 {$apptype CONSOLE}
 
-uses GLWindow, SysUtils, CastleUtils, CastleGLUtils, CastleParameters, CastleFilesUtils;
+uses CastleWindow, SysUtils, CastleUtils, CastleGLUtils, CastleParameters, CastleFilesUtils;
 
 var
   Window: TCastleWindowBase;

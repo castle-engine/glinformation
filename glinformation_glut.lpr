@@ -1,6 +1,6 @@
 program glinformation_glut;
 
-uses Glut, KambiGLUtils;
+uses Glut, CastleGLUtils;
 
 begin
   glutInit(@Argc, Argv);

@@ -29,7 +29,7 @@ program glinformation;
 uses GLWindow, SysUtils, KambiUtils, KambiGLUtils, KambiParameters, KambiFilesUtils;
 
 var
-  Window: TGLWindow;
+  Window: TCastleWindowBase;
 
 const
   Version = '1.2.0';
@@ -80,7 +80,7 @@ begin
         '                        double buffered anyway)' +nl+
         '  --double              Double buffered visual (default)' +nl+
         nl+
-        TGLWindow.ParseParametersHelp(StandardParseOptions, true) +nl+
+        TCastleWindowBase.ParseParametersHelp(StandardParseOptions, true) +nl+
         nl+
         SCastleEngineProgramHelpSuffix(ProgramName, Version, true));
       ProgramBreak;
@@ -110,7 +110,7 @@ begin
 end;
 
 begin
- Window := TGLWindow.Create(Application);
+ Window := TCastleWindowBase.Create(Application);
 
  { parse params }
  Window.ParseParameters(StandardParseOptions);

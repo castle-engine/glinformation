@@ -32,7 +32,7 @@ var
   Window: TCastleWindowBase;
 
 const
-  Version = '1.2.0';
+  Version = '1.2.1';
   Options: array[0..12] of TOption =
   (
     (Short: 'h'; Long: 'help'; Argument: oaNone),

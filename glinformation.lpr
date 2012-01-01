@@ -123,10 +123,3 @@ begin
   Writeln(GLInformationString);
  finally Window.Close end;
 end.
-
-{
-  Local Variables:
-  kam-compile-release-command-unix:    "./compile.sh && mv -fv glinformation     glinformation_glut      ~/bin/"
-  kam-compile-release-command-windows: "./compile.sh && mv -fv glinformation.exe glinformation_glut.exe c:\\\\bin"
-  End:
-}

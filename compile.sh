@@ -14,5 +14,5 @@ cd ../castle_game_engine/
 # Force rebuilding CastleWindow unit with proper backend.
 make clean-window
 
-fpc -dRELEASE "${CASTLE_FPC_OPTIONS:-}" @castle-fpc.cfg ../glinformation/glinformation.lpr
-fpc -dRELEASE "${CASTLE_FPC_OPTIONS:-}" @castle-fpc.cfg ../glinformation/glinformation_glut.lpr
+fpc -dRELEASE ${CASTLE_FPC_OPTIONS:-} @castle-fpc.cfg ../glinformation/glinformation.lpr
+fpc -dRELEASE ${CASTLE_FPC_OPTIONS:-} @castle-fpc.cfg ../glinformation/glinformation_glut.lpr

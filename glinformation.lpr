@@ -85,18 +85,18 @@ begin
         SCastleEngineProgramHelpSuffix(ProgramName, Version, true));
       ProgramBreak;
      end;
-  1: Window.StencilBufferBits := StrToInt(Argument);
+  1: Window.StencilBits := StrToInt(Argument);
   2: Window.AlphaBits := StrToInt(Argument);
-  3: Window.DepthBufferBits := StrToInt(Argument);
-  4: Window.AccumBufferBits[0] := StrToInt(Argument);
-  5: Window.AccumBufferBits[1] := StrToInt(Argument);
-  6: Window.AccumBufferBits[2] := StrToInt(Argument);
-  7: Window.AccumBufferBits[3] := StrToInt(Argument);
+  3: Window.DepthBits := StrToInt(Argument);
+  4: Window.AccumBits[0] := StrToInt(Argument);
+  5: Window.AccumBits[1] := StrToInt(Argument);
+  6: Window.AccumBits[2] := StrToInt(Argument);
+  7: Window.AccumBits[3] := StrToInt(Argument);
   8: begin
-      Window.AccumBufferBits[0] := StrToInt(SeparateArgs[1]);
-      Window.AccumBufferBits[1] := StrToInt(SeparateArgs[2]);
-      Window.AccumBufferBits[2] := StrToInt(SeparateArgs[3]);
-      Window.AccumBufferBits[3] := StrToInt(SeparateArgs[4]);
+      Window.AccumBits[0] := StrToInt(SeparateArgs[1]);
+      Window.AccumBits[1] := StrToInt(SeparateArgs[2]);
+      Window.AccumBits[2] := StrToInt(SeparateArgs[3]);
+      Window.AccumBits[3] := StrToInt(SeparateArgs[4]);
      end;
   9: Window.DoubleBuffer := false;
   10: Window.DoubleBuffer := true;

@@ -110,7 +110,7 @@ begin
 end;
 
 begin
- Window := TCastleWindowBase.Create(Application);
+ Window := TCastleWindowCustom.Create(Application);
 
  { parse params }
  Window.ParseParameters(StandardParseOptions);

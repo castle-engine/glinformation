@@ -33,7 +33,7 @@ var
 
 const
   Version = '1.2.1';
-  Options: array[0..12] of TOption =
+  Options: array[0..15] of TOption =
   (
     (Short: 'h'; Long: 'help'; Argument: oaNone),
     (Short: 's'; Long: 'stencil-bits'; Argument: oaRequired),
@@ -47,7 +47,10 @@ const
     (Short:  #0; Long: 'single'; Argument: oaNone),
     (Short:  #0; Long: 'double'; Argument: oaNone),
     (Short: 'v'; Long: 'version'; Argument: oaNone),
-    (Short: 'm'; Long: 'multi-sampling'; Argument: oaRequired)
+    (Short: 'm'; Long: 'multi-sampling'; Argument: oaRequired),
+    (Short:  #0; Long: 'red-bits'; Argument: oaRequired),
+    (Short:  #0; Long: 'green-bits'; Argument: oaRequired),
+    (Short:  #0; Long: 'blue-bits'; Argument: oaRequired)
   );
 
 procedure OptionProc(OptionNum: Integer; HasArgument: boolean;
@@ -75,6 +78,9 @@ begin
         '  --accum-alpha-bits ACCUM-ALPHA' +nl+
         '  --accum-bits ACCUM-RED ACCUM-GREEN ACCUM-BLUE ACCUM-ALPHA' +nl+
         '  -m / --multi-sampling SAMPLES (1 means "no multisampling")' +nl+
+        '  --red-bits BIT' +nl+
+        '  --green-bits BIT' +nl+
+        '  --blue-bits BIT' +nl+
         'Other options controlling OpenGL context parameters:' +nl+
         '  --single              Single buffered visual (note: we might get' +nl+
         '                        double buffered anyway)' +nl+
@@ -105,6 +111,9 @@ begin
        ProgramBreak;
       end;
   12: Window.MultiSampling := StrToInt(Argument);
+  13: Window.RedBits := StrToInt(Argument);
+  14: Window.GreenBits := StrToInt(Argument);
+  15: Window.BlueBits := StrToInt(Argument);
   else EInternalError.Create('OptionProc');
  end;
 end;

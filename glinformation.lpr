@@ -26,14 +26,15 @@ program glinformation;
 
 {$apptype CONSOLE}
 
-uses CastleWindow, SysUtils, CastleUtils, CastleGLUtils, CastleParameters, CastleFilesUtils;
+uses CastleWindow, SysUtils, CastleUtils, CastleGLUtils, CastleParameters,
+  CastleFilesUtils, CastleLog;
 
 var
   Window: TCastleWindowBase;
 
 const
   Version = '1.2.1';
-  Options: array[0..15] of TOption =
+  Options: array[0..16] of TOption =
   (
     (Short: 'h'; Long: 'help'; Argument: oaNone),
     (Short: 's'; Long: 'stencil-bits'; Argument: oaRequired),
@@ -50,7 +51,8 @@ const
     (Short: 'm'; Long: 'multi-sampling'; Argument: oaRequired),
     (Short:  #0; Long: 'red-bits'; Argument: oaRequired),
     (Short:  #0; Long: 'green-bits'; Argument: oaRequired),
-    (Short:  #0; Long: 'blue-bits'; Argument: oaRequired)
+    (Short:  #0; Long: 'blue-bits'; Argument: oaRequired),
+    (Short:  #0; Long: 'debug-log'; Argument: oaNone)
   );
 
 procedure OptionProc(OptionNum: Integer; HasArgument: boolean;
@@ -114,6 +116,7 @@ begin
   13: Window.RedBits := StrToInt(Argument);
   14: Window.GreenBits := StrToInt(Argument);
   15: Window.BlueBits := StrToInt(Argument);
+  16: InitializeLog(Version);
   else EInternalError.Create('OptionProc');
  end;
 end;

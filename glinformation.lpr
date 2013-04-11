@@ -74,11 +74,6 @@ begin
         '  -s / --stencil-bits STENCIL-BUFFER-BIT-SIZE' +nl+
         '  -a / --alpha-bits ALPHA-CHANNEL-BIT-SIZE' +nl+
         '  -d / --depth-bits DEPTH-BUFFER-BIT-SIZE' +nl+
-        '  --accum-red-bits ACCUM-RED' +nl+
-        '  --accum-green-bits ACCUM-GREEN' +nl+
-        '  --accum-blue-bits ACCUM-BLUE' +nl+
-        '  --accum-alpha-bits ACCUM-ALPHA' +nl+
-        '  --accum-bits ACCUM-RED ACCUM-GREEN ACCUM-BLUE ACCUM-ALPHA' +nl+
         '  -m / --multi-sampling SAMPLES (1 means "no multisampling")' +nl+
         '  --red-bits BIT' +nl+
         '  --green-bits BIT' +nl+
@@ -96,27 +91,17 @@ begin
   1: Window.StencilBits := StrToInt(Argument);
   2: Window.AlphaBits := StrToInt(Argument);
   3: Window.DepthBits := StrToInt(Argument);
-  4: Window.AccumBits[0] := StrToInt(Argument);
-  5: Window.AccumBits[1] := StrToInt(Argument);
-  6: Window.AccumBits[2] := StrToInt(Argument);
-  7: Window.AccumBits[3] := StrToInt(Argument);
-  8: begin
-      Window.AccumBits[0] := StrToInt(SeparateArgs[1]);
-      Window.AccumBits[1] := StrToInt(SeparateArgs[2]);
-      Window.AccumBits[2] := StrToInt(SeparateArgs[3]);
-      Window.AccumBits[3] := StrToInt(SeparateArgs[4]);
-     end;
-  9: Window.DoubleBuffer := false;
-  10: Window.DoubleBuffer := true;
-  11: begin
+  4: Window.DoubleBuffer := false;
+  5: Window.DoubleBuffer := true;
+  6: begin
        Writeln(Version);
        ProgramBreak;
       end;
-  12: Window.MultiSampling := StrToInt(Argument);
-  13: Window.RedBits := StrToInt(Argument);
-  14: Window.GreenBits := StrToInt(Argument);
-  15: Window.BlueBits := StrToInt(Argument);
-  16: InitializeLog(Version);
+  7: Window.MultiSampling := StrToInt(Argument);
+  8: Window.RedBits := StrToInt(Argument);
+  9: Window.GreenBits := StrToInt(Argument);
+  10: Window.BlueBits := StrToInt(Argument);
+  11: InitializeLog(Version);
   else EInternalError.Create('OptionProc');
  end;
 end;

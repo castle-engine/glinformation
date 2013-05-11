@@ -6,3 +6,5 @@ compile:
 .PHONY: clean
 clean:
 	rm -f glinformation glinformation.exe glinformation_glut glinformation_glut.exe
+	rm -Rf glinformation.app glinformation_glut.app
+

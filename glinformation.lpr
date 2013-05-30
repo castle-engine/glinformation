@@ -85,7 +85,7 @@ begin
         nl+
         TCastleWindowBase.ParseParametersHelp(StandardParseOptions, true) +nl+
         nl+
-        SCastleEngineProgramHelpSuffix(ProgramName, Version, true));
+        SCastleEngineProgramHelpSuffix(ApplicationName, Version, true));
       ProgramBreak;
      end;
   1: Window.StencilBits := StrToInt(Argument);

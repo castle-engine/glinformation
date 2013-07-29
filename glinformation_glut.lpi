@@ -56,6 +56,9 @@
       <IncludeFiles Value="$(ProjOutDir)/"/>
     </SearchPaths>
     <Other>
+      <Verbosity>
+        <ShowHints Value="False"/>
+      </Verbosity>
       <CompilerPath Value="$(CompPath)"/>
     </Other>
   </CompilerOptions>

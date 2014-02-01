@@ -30,7 +30,7 @@ uses CastleWindow, SysUtils, CastleUtils, CastleGLUtils, CastleParameters,
   CastleFilesUtils, CastleLog;
 
 var
-  Window: TCastleWindowBase;
+  Window: TCastleWindowCustom;
 
 const
   Version = '1.2.2';
@@ -83,7 +83,7 @@ begin
         '                        double buffered anyway)' +nl+
         '  --double              Double buffered visual (default)' +nl+
         nl+
-        TCastleWindowBase.ParseParametersHelp(StandardParseOptions, true) +nl+
+        TCastleWindowCustom.ParseParametersHelp(StandardParseOptions, true) +nl+
         nl+
         SCastleEngineProgramHelpSuffix(ApplicationName, Version, true));
       ProgramBreak;

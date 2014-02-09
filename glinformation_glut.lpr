@@ -5,6 +5,6 @@ uses Glut, CastleGLUtils;
 begin
   glutInit(@Argc, Argv);
   glutCreateWindow('glinformation');
-  LoadAllExtensions;
+  GLInformationInitialize;
   Writeln(GLInformationString);
 end.

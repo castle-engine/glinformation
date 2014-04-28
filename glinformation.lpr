@@ -34,17 +34,12 @@ var
 
 const
   Version = '1.2.2';
-  Options: array[0..16] of TOption =
+  Options: array[0..11] of TOption =
   (
     (Short: 'h'; Long: 'help'; Argument: oaNone),
     (Short: 's'; Long: 'stencil-bits'; Argument: oaRequired),
     (Short: 'a'; Long: 'alpha-bits'; Argument: oaRequired),
     (Short: 'd'; Long: 'depth-bits'; Argument: oaRequired),
-    (Short:  #0; Long: 'accum-red-bits'; Argument: oaRequired),
-    (Short:  #0; Long: 'accum-green-bits'; Argument: oaRequired),
-    (Short:  #0; Long: 'accum-blue-bits'; Argument: oaRequired),
-    (Short:  #0; Long: 'accum-alpha-bits'; Argument: oaRequired),
-    (Short:  #0; Long: 'accum-bits'; Argument: oaRequired4Separate),
     (Short:  #0; Long: 'single'; Argument: oaNone),
     (Short:  #0; Long: 'double'; Argument: oaNone),
     (Short: 'v'; Long: 'version'; Argument: oaNone),

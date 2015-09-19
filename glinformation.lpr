@@ -81,7 +81,7 @@ begin
         TCastleWindowCustom.ParseParametersHelp(StandardParseOptions, true) +nl+
         nl+
         SCastleEngineProgramHelpSuffix(ApplicationName, Version, true));
-      ProgramBreak;
+      Halt;
      end;
   1: Window.StencilBits := StrToInt(Argument);
   2: Window.AlphaBits := StrToInt(Argument);
@@ -90,7 +90,7 @@ begin
   5: Window.DoubleBuffer := true;
   6: begin
        Writeln(Version);
-       ProgramBreak;
+       Halt;
       end;
   7: Window.MultiSampling := StrToInt(Argument);
   8: Window.RedBits := StrToInt(Argument);

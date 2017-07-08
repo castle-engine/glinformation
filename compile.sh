@@ -3,13 +3,6 @@ set -eu
 
 # Compile glinformation and glinformation_glut binaries.
 
-if [ -d ../castle_game_engine ]; then
-  # Force rebuilding CastleWindow unit with proper backend.
-  cd ../castle_game_engine/
-  make --quiet clean-window
-  cd ../glinformation/
-fi
-
 if which castle-engine  > /dev/null; then
   # preferred build option: use castle-engine build tool.
   castle-engine simple-compile ${CASTLE_ENGINE_TOOL_OPTIONS:-} glinformation.lpr

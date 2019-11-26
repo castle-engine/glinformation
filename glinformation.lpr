@@ -21,16 +21,16 @@
 }
 
 { Print OpenGL information.
-  See [http://castle-engine.sourceforge.net/glinformation.php]. }
+  See [https://castle-engine.io/glinformation.php]. }
 program glinformation;
 
 {$apptype CONSOLE}
 
 uses CastleWindow, SysUtils, CastleUtils, CastleGLUtils, CastleParameters,
-  CastleFilesUtils, CastleLog;
+  CastleFilesUtils, CastleLog, CastleApplicationProperties;
 
 var
-  Window: TCastleWindowCustom;
+  Window: TCastleWindowBase;
 
 const
   Version = '1.2.2';
@@ -53,65 +53,66 @@ const
 procedure OptionProc(OptionNum: Integer; HasArgument: boolean;
   const Argument: string; const SeparateArgs: TSeparateArgs; Data: Pointer);
 begin
- case OptionNum of
-  0: begin
-      Writeln(
-        'glinformation: OpenGL information,' +nl+
-        '  a small program that creates OpenGL context and uses it to query' +nl+
-        '  OpenGL implementation about many things. Results are output to stdout.' +nl+
-        nl+
-        'Available options:' +nl+
-        HelpOptionHelp +nl+
-        VersionOptionHelp +nl+
-        nl+
-        'Options requesting that OpenGL context be created with certain' +nl+
-        '  minimum values:' +nl+
-        '  -s / --stencil-bits STENCIL-BUFFER-BIT-SIZE' +nl+
-        '  -a / --alpha-bits ALPHA-CHANNEL-BIT-SIZE' +nl+
-        '  -d / --depth-bits DEPTH-BUFFER-BIT-SIZE' +nl+
-        '  -m / --multi-sampling SAMPLES (1 means "no multisampling")' +nl+
-        '  --red-bits BIT' +nl+
-        '  --green-bits BIT' +nl+
-        '  --blue-bits BIT' +nl+
-        'Other options controlling OpenGL context parameters:' +nl+
-        '  --single              Single buffered visual (note: we might get' +nl+
-        '                        double buffered anyway)' +nl+
-        '  --double              Double buffered visual (default)' +nl+
-        nl+
-        TCastleWindowCustom.ParseParametersHelp(StandardParseOptions, true) +nl+
-        nl+
-        SCastleEngineProgramHelpSuffix(ApplicationName, Version, true));
-      Halt;
-     end;
-  1: Window.StencilBits := StrToInt(Argument);
-  2: Window.AlphaBits := StrToInt(Argument);
-  3: Window.DepthBits := StrToInt(Argument);
-  4: Window.DoubleBuffer := false;
-  5: Window.DoubleBuffer := true;
-  6: begin
-       Writeln(Version);
-       Halt;
-      end;
-  7: Window.MultiSampling := StrToInt(Argument);
-  8: Window.RedBits := StrToInt(Argument);
-  9: Window.GreenBits := StrToInt(Argument);
-  10: Window.BlueBits := StrToInt(Argument);
-  11: InitializeLog(Version);
-  else EInternalError.Create('OptionProc');
- end;
+  case OptionNum of
+    0: begin
+        Writeln(
+          'glinformation: OpenGL information,' +nl+
+          '  a small program that creates OpenGL context and uses it to query' +nl+
+          '  OpenGL implementation about many things. Results are output to stdout.' +nl+
+          nl+
+          'Available options:' +nl+
+          HelpOptionHelp +nl+
+          VersionOptionHelp +nl+
+          nl+
+          'Options requesting that OpenGL context be created with certain' +nl+
+          '  minimum values:' +nl+
+          '  -s / --stencil-bits STENCIL-BUFFER-BIT-SIZE' +nl+
+          '  -a / --alpha-bits ALPHA-CHANNEL-BIT-SIZE' +nl+
+          '  -d / --depth-bits DEPTH-BUFFER-BIT-SIZE' +nl+
+          '  -m / --multi-sampling SAMPLES (1 means "no multisampling")' +nl+
+          '  --red-bits BIT' +nl+
+          '  --green-bits BIT' +nl+
+          '  --blue-bits BIT' +nl+
+          'Other options controlling OpenGL context parameters:' +nl+
+          '  --single              Single buffered visual (note: we might get' +nl+
+          '                        double buffered anyway)' +nl+
+          '  --double              Double buffered visual (default)' +nl+
+          nl+
+          TCastleWindowBase.ParseParametersHelp(StandardParseOptions, true) +nl+
+          nl+
+          SCastleEngineProgramHelpSuffix(ApplicationName, Version, true));
+        Halt;
+       end;
+    1: Window.StencilBits := StrToInt(Argument);
+    2: Window.AlphaBits := StrToInt(Argument);
+    3: Window.DepthBits := StrToInt(Argument);
+    4: Window.DoubleBuffer := false;
+    5: Window.DoubleBuffer := true;
+    6: begin
+         Writeln(Version);
+         Halt;
+        end;
+    7: Window.MultiSampling := StrToInt(Argument);
+    8: Window.RedBits := StrToInt(Argument);
+    9: Window.GreenBits := StrToInt(Argument);
+    10: Window.BlueBits := StrToInt(Argument);
+    11: InitializeLog;
+    else EInternalError.Create('OptionProc');
+  end;
 end;
 
 begin
- Window := TCastleWindowCustom.Create(Application);
+  ApplicationProperties.Version := Version;
+  Window := TCastleWindowBase.Create(Application);
 
- { parse params }
- Window.ParseParameters(StandardParseOptions);
- Parameters.Parse(Options, @OptionProc, nil);
- if Parameters.High <> 0 then
-  raise EInvalidParams.CreateFmt('Excessive parameter "%s"', [Parameters[1]]);
+  { parse params }
+  Window.ParseParameters(StandardParseOptions);
+  Parameters.Parse(Options, @OptionProc, nil);
+  if Parameters.High <> 0 then
+   raise EInvalidParams.CreateFmt('Excessive parameter "%s"', [Parameters[1]]);
 
- Window.Open;
- try
-  Writeln(GLInformationString);
- finally Window.Close end;
+  Window.Open;
+  try
+    Writeln(GLInformationString);
+  finally Window.Close end;
 end.

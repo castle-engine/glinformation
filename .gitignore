@@ -1,5 +1,6 @@
 *~
-*.o
+*.res
+castle-engine-output/
 glinformation
 glinformation_glut
 glinformation.exe

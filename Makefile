@@ -1,10 +1,8 @@
 .PHONY: compile
 compile:
-	./compile.sh
+	castle-engine compile
 
 .PHONY: clean
 clean:
-	rm -Rf glinformation glinformation.exe \
-	       glinformation_glut glinformation_glut.exe \
-	       glinformation.app glinformation_glut.app \
+	rm -Rf glinformation glinformation.exe glinformation.app \
 	       castle-engine-output/

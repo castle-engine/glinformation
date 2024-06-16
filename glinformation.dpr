@@ -30,10 +30,10 @@ uses CastleWindow, SysUtils, CastleUtils, CastleGLUtils, CastleParameters,
   CastleFilesUtils, CastleLog, CastleApplicationProperties;
 
 var
-  Window: TCastleWindowBase;
+  Window: TCastleWindow;
 
 const
-  Version = '1.2.2';
+  Version = '1.3.0';
   Options: array[0..11] of TOption =
   (
     (Short: 'h'; Long: 'help'; Argument: oaNone),
@@ -78,7 +78,7 @@ begin
           '                        double buffered anyway)' +nl+
           '  --double              Double buffered visual (default)' +nl+
           nl+
-          TCastleWindowBase.ParseParametersHelp(StandardParseOptions, true) +nl+
+          TCastleWindow.ParseParametersHelp +nl+
           nl+
           SCastleEngineProgramHelpSuffix(ApplicationName, Version, true));
         Halt;
@@ -103,10 +103,11 @@ end;
 
 begin
   ApplicationProperties.Version := Version;
-  Window := TCastleWindowBase.Create(Application);
+  Window := TCastleWindow.Create(Application);
+  Window.Visible := false;
 
   { parse params }
-  Window.ParseParameters(StandardParseOptions);
+  Window.ParseParameters;
   Parameters.Parse(Options, @OptionProc, nil);
   if Parameters.High <> 0 then
    raise EInvalidParams.CreateFmt('Excessive parameter "%s"', [Parameters[1]]);

@@ -41,7 +41,7 @@
     </RequiredPackages>
     <Units Count="1">
       <Unit0>
-        <Filename Value="glinformation.lpr"/>
+        <Filename Value="glinformation.dpr"/>
         <IsPartOfProject Value="True"/>
         <UsageCount Value="20"/>
       </Unit0>

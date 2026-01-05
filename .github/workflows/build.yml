@@ -82,7 +82,7 @@ jobs:
       - name: Archive Artifacts
         uses: actions/upload-artifact@v6
         with:
-          name: macos-build
+          name: macos-build-${{ matrix.runner }}
           path: "*.zip"
           if-no-files-found: error
 

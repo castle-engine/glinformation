@@ -64,7 +64,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Install FPC+Lazarus
-        uses: gcarreno/setup-lazarus@v3.3.1
+        uses: gcarreno/setup-lazarus@v3.4.0
         with:
           lazarus-version: stable
       - name: Castle Game Engine - Env CASTLE_ENGINE_PATH

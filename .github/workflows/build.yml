@@ -83,7 +83,7 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: macos-build
-          path: "*-darwin-x86_64.zip"
+          path: "*.zip"
           if-no-files-found: error
 
   release:
